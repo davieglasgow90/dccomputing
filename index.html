@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.C Computing Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>D.C Computing Services</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Building Your Digital Future</h2>
+            <p>Web Design • Mobile Apps • Social Media Management</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Web Design</h3>
+                    <p>Modern, mobile-friendly websites to showcase your business online.</p>
+                </div>
+                <div class="card">
+                    <h3>Mobile Apps</h3>
+                    <p>Custom app development for iOS and Android, built to engage your audience.</p>
+                </div>
+                <div class="card">
+                    <h3>Social Media Management</h3>
+                    <p>Grow your brand's presence with smart, professional social media management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At D.C Computing Services, we believe every business deserves a powerful online presence. 
+            We specialize in web design, app development, and social media management to help you grow your business.</p>
+        </div>
+    </section>
+
+    
+    <!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="https://formspree.io/f/xvgagbwq" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div id="form-success" style="display: none; margin-top: 20px; color: #00ff99; font-weight: bold;">
+            ✅ Thank you! Your message has been sent successfully.
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 D.C Computing Services. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('form-success');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+    
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "thankyou.html"; // redirect instead of showing inline message
+                } else {
+                    alert('Oops! Something went wrong. Please try again.');
+                }
+            }).catch(error => {
+                alert('Oops! Something went wrong. Please try again.');
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>
